@@ -7,11 +7,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#20201d";
+static const char col_gray1[]       = "#2f2b25";
 static const char col_gray2[]       = "#5F5F5F";
-static const char col_gray3[]       = "#AD896E";
+static const char col_gray3[]       = "#8f3bb5";
 static const char col_gray4[]       = "#222222";
-static const char col_cyan[]        = "#AD896E";
+static const char col_cyan[]        = "#8f3bb5";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -20,7 +20,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "T", "A", "G", "S", "<3" };
+static const char *tags[] = { "F","I","S","H","S","T","I","C","K","S"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -61,14 +61,14 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *screenshot[] = {"/home/fish/screenshot/screenshot.sh", NULL};
+static const char *screenshot[] = {"/home/fishy/screenshot/screenshot.sh", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} }, 
-	{ ControlMask,                  XK_e,      spawn,          {.v = screenshot } },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
@@ -89,16 +89,16 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	TAGKEYS(                        XK_1,                      0)
-	TAGKEYS(                        XK_2,                      1)
-	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
+	TAGKEYS(                        XK_q,                      0)
+	TAGKEYS(                        XK_w,                      1)
+	TAGKEYS(                        XK_e,                      2)
+	TAGKEYS(                        XK_r,                      3)
+	TAGKEYS(                        XK_t,                      4)
+	TAGKEYS(                        XK_y,                      5)
+	TAGKEYS(                        XK_u,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_p,      quit,           {0} },
 };
 
 /* button definitions */
@@ -117,4 +117,5 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
+
 
